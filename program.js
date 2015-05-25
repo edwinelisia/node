@@ -69,33 +69,41 @@
 // })
 
 // learnyounode 9
-var bl = require('bl')
-var http = require('http')
-var result = []
-var totalUrl = process.argv.length - 2
+// var bl = require('bl')
+// var http = require('http')
+// var result = []
+// var totalUrl = process.argv.length - 2
+//
+// function after(n, callback) {
+//   return function() {
+//     if (--n === 0) callback(result)
+//   }
+// }
+//
+// var done = after(totalUrl, function(r) {
+//   r.forEach(function(data) {
+//     console.log(data)
+//   })
+// })
+//
+// function httpCall(i) {
+//   http.get(process.argv[i+2], function(response) {
+//     response.pipe(bl(function(error, data) {
+//       result[i] = data.toString()
+//       //console.log(i + " " + data.toString())
+//     }))
+//     response.on('end', function() {
+//       done()
+//     })
+//   })
+// }
+//
+// for (var i = 0; i < totalUrl; i++) {
+//   httpCall(i)
+// }
 
-function after(n, callback) {
-  return function() {
-    if (--n === 0) callback(result)
-  }
-}
-var done = after(totalUrl, function(r) {
-  r.forEach(function(data) {
-    console.log(data)
-  })
+// learnyounode 10
+var net = require('net')
+var server = net.createServer(function(socket) {
+  //dosomething
 })
-function httpCall(i) {
-  http.get(process.argv[i+2], function(response) {
-    response.pipe(bl(function(error, data) {
-      result[i] = data.toString()
-      //console.log(i + " " + data.toString())
-    }))
-    response.on('end', function() {
-      done()
-    })
-  })
-}
-
-for (var i = 0; i < totalUrl; i++) {
-  httpCall(i)
-}
