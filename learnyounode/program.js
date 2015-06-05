@@ -103,9 +103,23 @@
 // }
 
 // learnyounode 10
-var net = require('net')
-var server = net.createServer(function(socket) {
-  //dosomething
-})
+//var net = require('net');
+//var strftime = require('strftime');
+//
+//var server = net.createServer(function(socket) {
+//    console.log("Client Connected");
+//    var date = new Date;
+//    time = strftime('%Y-%m-%d %H:%M');
+//    socket.write(time + '\r\n');
+//    //socket.pipe(socket);
+//    socket.destroy();
+//    socket.on('end', function() {
+//        console.log("Client disconnected");
+//    })
+//});
+//server.listen(process.argv[2], function () {
+//    console.log("Time server started. Listening on port " + process.argv[2]);
+//});
 
+// learnyounode 11
 
