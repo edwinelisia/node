@@ -123,3 +123,16 @@
 
 // learnyounode 11
 
+
+// learnyounode 12
+// var http = require('http');
+// var map = require('through2-map');
+// var server = http.createServer(function (request, response) {
+//   console.log("Client connected");
+//   request.pipe(map(function (chunk) {
+//     return chunk.toString().toUpperCase();
+//   })).pipe(response);
+// });
+// server.listen(process.argv[2], function () {
+//   console.log("HTTP server started, listening on " + process.argv[2]);
+// });
