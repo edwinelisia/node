@@ -136,3 +136,24 @@
 // server.listen(process.argv[2], function () {
 //   console.log("HTTP server started, listening on " + process.argv[2]);
 // });
+
+// learnyounode 13
+var http = require('http');
+var url = require('url');
+
+var server = http.createServer(function (request, response) {
+  var parsedUrl = url.parse(request.url, true);
+  var parsedDateTime = new Date(parsedUrl.query.iso);
+  if (parsedUrl.pathname === '/api/parsetime') {
+    var time = {hour: parsedDateTime.getHours(), minute: parsedDateTime.getMinutes(), second: parsedDateTime.getSeconds()};
+  }
+  if (parsedUrl.pathname === '/api/unixtime') {
+    var time = {unixtime: parsedDateTime.getTime()};
+  }
+  response.writeHead(200, { 'Content-Type': 'application/json'})
+  response.write(JSON.stringify(time));
+  response.end();
+});
+server.listen(process.argv[2], function () {
+  console.log("Http server started, listening on ", process.argv[2]);
+});
